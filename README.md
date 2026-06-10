@@ -55,76 +55,9 @@ Por fim, estabeleceria processos de revisão periódica dos indicadores e condu�
 
 ### Arquitetura proposta
 
-```text
-                         +------------------+
-                         |     Usuários     |
-                         +--------+---------+
-                                  |
-                                  v
-                       +---------------------+
-                       | Kubernetes Cluster  |
-                       +---------------------+
-                                  |
-             +--------------------+--------------------+
-             |                    |                    |
-             v                    v                    v
+## Arquitetura proposta
 
-     +---------------+   +----------------+   +----------------+
-     | Aplicações    |   | Nodes/Pods     |   | Wazuh Agents   |
-     +-------+-------+   +--------+-------+   +--------+-------+
-             |                    |                    |
-             +--------------------+--------------------+
-                                  |
-                                  v
-
-                   +----------------------------+
-                   | OpenTelemetry Collector    |
-                   +-------------+--------------+
-                                 |
-                +----------------+----------------+
-                |                                 |
-                v                                 v
-
-        +---------------+                 +--------------+
-        | Prometheus    |                 |    Jaeger    |
-        +-------+-------+                 +--------------+
-                |
-                v
-
-        +---------------+
-        | Alertmanager  |
-        +-------+-------+
-                |
-                v
-
-        +---------------+
-        |   Grafana     |
-        +---------------+
-
-                ^
-                |
-      +----------------------+
-      | Elasticsearch        |
-      +----------+-----------+
-                 ^
-                 |
-      +----------+-----------+
-      | Elastic Agent        |
-      +----------+-----------+
-                 ^
-                 |
-      +----------+-----------+
-      | Wazuh Manager         |
-      +----------+-----------+
-                 |
-                 v
-
-            +---------+
-            | Kibana  |
-            +---------+
-```
-
----
+![Arquitetura de Observabilidade](arquitetura-observabilidade.png.png)
 
 ## 03 - Como você definiria os SLIs e os SLOs de um serviço crítico? Cite um exemplo e explique o que é o Error Budget.
 
